@@ -17,5 +17,9 @@ cargo build
 ```
 
 ```rust
+cargo build --release
+```
+
+```rust
 cargo check
 ```
