@@ -13,7 +13,8 @@ fn main() {
 
     print_labeled_measurement(5, 'h');
 
-    let x = (let y = 6);
+    // (let y = 6) is not an expression, so it cannot be assigned to a variable
+    // let x = (let y = 6);
 }
 
 fn print_labeled_measurement(value: i32, unit_label: char) {
