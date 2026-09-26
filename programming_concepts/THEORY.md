@@ -8,21 +8,36 @@
 ## Functions
 - Statements vs Expressions
   - If you add a semicolon to the end of an expression, you turn it into a statement, and it will then not return a value. Keep this in mind as you explore function return values and expressions next.
+
+  ```rust
+  fn main() {
+      let y = {
+          let x = 3;
+          x + 1
+      };
+  
+      println!("The value of y is: {y}");
+  }
+  ```
+
   - The let y = 6 statement does not return a value, so there isn’t anything for x to bind to. This is different from what happens in other languages, such as C and Ruby, where the assignment returns the value of the assignment. In those languages, you can write x = y = 6 and have both x and y have the value 6; that is not the case in Rust.
 
-```rust
-fn main() {
-    let y = {
-        let x = 3;
-        x + 1
-    };
+  ```rust
+  fn main() {
+      let x = (let y = 6);
+  }
+  ```
+  
+  - `if` and `else` must have compatible types
 
-    println!("The value of y is: {y}");
-}
-```
+  ```rust
+  fn main() {
+      let condition = true;
+  
+      let number = if condition { 5 } else { "six" };
+  
+      println!("The value of number is: {number}");
+  }
+  ```
 
-```rust
-fn main() {
-    let x = (let y = 6);
-}
-```
+- You can also return from inside a loop. While break only exits the current loop, return always exits the current function.
